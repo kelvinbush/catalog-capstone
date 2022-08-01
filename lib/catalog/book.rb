@@ -1,0 +1,1 @@
+class Book < Item  def initialize(date)    super(date)  endend
