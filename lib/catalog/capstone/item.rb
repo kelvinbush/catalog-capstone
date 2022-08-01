@@ -8,13 +8,16 @@ attr_reader :publish_date, :label, :date, :genre, :author
   end
 
   def can_be_archived?
-    @archived
+    year = Time.new.year
+    year - @publish_date.year > 10
   end
 
   def move_to_archive
   end
 
   def add_genre
+    @genre = genre
+    genre.items.push(self) unless genre.items.include?(self)
   end
 
   def add_author
