@@ -1,1 +1,1 @@
-require_relative 'item'class Label  attr_reader :items  def initialize    @id = Random.rand(1..1000)    @items = []  end  def add_item(item: Item)    @items.push(item)    item.label = self  endend
+require_relative 'item'class Label  attr_reader :items, :title, :color  def initialize(title, color)    @id = Random.rand(1..1000)    @items = []    @title = title    @color = color  end  def add_item(item: Item)    @items.push(item)    item.label = self  endend
