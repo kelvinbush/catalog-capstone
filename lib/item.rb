@@ -7,13 +7,14 @@ class Item
     @id = Random.rand(1..1000)
     @publish_date = Date.strptime(date, '%Y-%m-%d')
     @archived = false
+    @genre = genre
   end
 
   def move_to_archive
     can_be_archived? ? @archived = true : nil
   end
 
-  def add_genre
+  def add_genre(genre)
     @genre = genre
     genre.items.push(self) unless genre.items.include?(self)
   end
