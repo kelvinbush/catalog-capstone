@@ -71,6 +71,7 @@ class Menu
     when 11 then add_label
     when 12 then puts 'Please add a game'
     when 13
+      @app.save_files
       puts 'Thank you for using this app. Goodbye'
       exit
     else
