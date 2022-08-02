@@ -14,11 +14,19 @@ class App
   end
 
   def list_books
-    @books.each { |book| puts "Publisher: #{book.publisher}, condition: #{book.cover_state}, published date: #{book.date}" }
+    if @books.empty?
+      puts 'Catalog is empty! Choose (9) to add a book.'
+    else
+      @books.each { |book| puts "Publisher: #{book.publisher}, condition: #{book.cover_state}, published date: #{book.date}" }
+    end
   end
 
   def list_labels
-    @labels.each { |label| puts "Title: #{label.title}, color: #{label.color}" }
+    if @labels.empty?
+      puts 'Catalog is empty! Choose (11) to add a label.'
+    else
+      @labels.each { |label| puts "Title: #{label.title}, color: #{label.color}" }
+    end
   end
 
 end

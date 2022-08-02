@@ -41,7 +41,7 @@ class Menu
       puts '8 - List all sources (e.g \'From a friend\', \'Online shop\')'
       puts '9 - Add a book'
       puts '10 - Add a music album'
-      puts '11 - Add a movie'
+      puts '11 - Add a label'
       puts '12 - Add a game'
       puts '13 - Exit'
       execute_inputs
@@ -58,12 +58,12 @@ class Menu
     when 3 then puts 'Gallery is empty! Choose (11) to add a movie.'
     when 4 then puts 'Store is empty! Choose (12) to add a game.'
     when 5 then puts 'Genre\'s list is empty!'
-    when 6 then puts 'Labels\'s list is empty!'
+    when 6 then @app.list_labels
     when 7 then puts 'Author\'s list is empty!'
     when 8 then puts 'Source\'s list is empty!'
-    when 9 then puts 'Please add a book!'
+    when 9 then add_book
     when 10 then puts 'Please add a music album!'
-    when 11 then puts 'Please add a movie!'
+    when 11 then add_label
     when 12 then puts 'Please add a game'
     when 13
       puts 'Thank you for using this app. Goodbye'
