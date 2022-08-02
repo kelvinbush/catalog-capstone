@@ -1,3 +1,5 @@
+require_relative 'item'
+
 class Book < Item
   attr_reader :publisher, :cover_state
 
@@ -7,7 +9,7 @@ class Book < Item
     @cover_state = cover_state
   end
 
-  private def can_be_archived?
+  def can_be_archived?
     super || @cover_state == 'bad'
   end
 end
