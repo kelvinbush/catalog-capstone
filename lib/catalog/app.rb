@@ -1,7 +1,7 @@
-require './lib/catalog/menu'
+require 'menu'
 
 class App
-  def initialize()
+  def initialize
     @menu = Menu.new
   end
 
