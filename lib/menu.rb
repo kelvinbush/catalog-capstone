@@ -1,5 +1,6 @@
 require_relative 'app'
 require_relative 'book'
+require_relative 'label'
 
 class Menu
   def initialize
@@ -7,14 +8,23 @@ class Menu
   end
 
   def add_book
-    print 'Enter book publisher: '
+    print 'Enter book publisher:'
     publisher = gets.chomp
-    print 'Choose cover state bad(n) or good(y) -> (Y/N): '
+    print 'Choose cover state bad(n) or good(y) -> (Y/N):'
     cover_state = gets.chomp.downcase == 'y' ? 'good' : 'bad'
-    print 'Enter published date, format -> YYYY/MM/DD: '
+    print 'Enter published date, format -> YYYY/MM/DD:'
     date = gets.chomp
     book = Book.new(date, publisher, cover_state)
     @app.add_book(book)
+  end
+
+  def add_label
+    print 'Enter the label title:'
+    title = gets.chomp
+    print 'Enter the label color:'
+    color = gets.chomp
+    label = Label.new(title, color)
+    @app.add_label(label)
   end
 
   def inputs

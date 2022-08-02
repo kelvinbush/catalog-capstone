@@ -1,5 +1,3 @@
-require_relative '../io/book_io'
-
 class App
 
   def initialize
@@ -8,11 +6,11 @@ class App
   end
 
   def add_book(book)
-    @books.push(book)
+    @books << book
   end
 
   def add_label(label)
-    @labels.push(label)
+    @labels << label
   end
 
   def list_books
