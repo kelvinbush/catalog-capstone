@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'item'
 
 class Label
@@ -14,5 +16,4 @@ class Label
     @items.push(item)
     item.add_label(self)
   end
-
 end

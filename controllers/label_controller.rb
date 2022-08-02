@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 require 'fileutils'
 require_relative '../lib/label'
@@ -22,7 +24,7 @@ class LabelController
     labels.each do |label|
       saved_labels << {
         title: label.title,
-        color: label.color,
+        color: label.color
       }
     end
     File.write(@labels_path, JSON.generate(saved_labels))

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Genre
   def initialize(name)
     @id = Random.rand(1..1000)

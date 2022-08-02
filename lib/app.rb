@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require_relative '../controllers/book_controller'
 require_relative '../controllers/label_controller'
 
 class App
-
   def initialize
     @book_controller = BookController.new
     @label_controller = LabelController.new
@@ -22,7 +23,9 @@ class App
     if @books.empty?
       puts 'Catalog is empty! Choose (9) to add a book.'
     else
-      @books.each { |book| puts "Publisher: #{book.publisher}, condition: #{book.cover_state}, published date: #{book.publish_date}" }
+      @books.each do |book|
+        puts "Publisher: #{book.publisher}, condition: #{book.cover_state}, published date: #{book.publish_date}"
+      end
     end
   end
 
@@ -38,6 +41,4 @@ class App
     @book_controller.save_books(@books)
     @label_controller.save_labels(@labels)
   end
-
 end
-  
