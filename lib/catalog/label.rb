@@ -10,7 +10,7 @@ class Label
     @color = color
   end
 
-  def add_item(item: Item)
+  def add_item(item)
     @items.push(item)
     item.add_label(self)
   end
