@@ -1,7 +1,7 @@
 require 'json'
 require './lib/album.rb'
 
-module AlbumController
+class AlbumController
   def fetch_albums
     store = []
     file = open('./files/album.json')
@@ -16,9 +16,9 @@ module AlbumController
     store
   end
 
-  def save_albums
+  def save_albums(albums)
     store = []
-    @albums.each do |album|
+    albums.each do |album|
       store << { date: album.publish_date, name: album.name }
     end
     File.write('./files/album.json', store.to_json)
