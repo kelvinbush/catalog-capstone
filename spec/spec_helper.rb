@@ -1,2 +1,2 @@
-require_relative '../lib/catalog/book'
-require_relative '../lib/catalog/label'
+require_relative '../lib/book'
+require_relative '../lib/label'
