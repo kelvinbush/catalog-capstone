@@ -1,13 +1,22 @@
-require 'menu'
+require_relative '../io/book_io'
 
 class App
+
   def initialize
-    @menu = Menu.new
+    @books = []
+    @labels = []
   end
 
-  def start
-    puts 'Welcome to Kevin, Simba and Hammed\'s Ruby Capstone! Group'
-    @menu.inputs
+  def add_book(book)
+    @books.push(book)
   end
+
+  def add_label(label)
+    @labels.push(label)
+  end
+
+  def list_books
+  end
+
 end
   

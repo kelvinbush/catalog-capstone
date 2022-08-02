@@ -1,5 +1,5 @@
 require 'pry'
-require_relative 'app'
+require_relative 'lib/app'
 
 def main
   app = App.new

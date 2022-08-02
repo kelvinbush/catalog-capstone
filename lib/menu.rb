@@ -1,6 +1,20 @@
+require_relative 'app'
+require_relative 'book'
 
 class Menu
-  def initialize()
+  def initialize
+    @app = App.new
+  end
+
+  def add_book
+    print 'Enter book publisher: '
+    publisher = gets.chomp
+    print 'Choose cover state bad(n) or good(y) -> (Y/N): '
+    cover_state = gets.chomp.downcase == 'y' ? 'good' : 'bad'
+    print 'Enter published date, format -> YYYY/MM/DD: '
+    date = gets.chomp
+    book = Book.new(date, publisher, cover_state)
+    @app.add_book(book)
   end
 
   def inputs
