@@ -1,7 +1,10 @@
+require_relative '../controllers/book_controller'
+
 class App
 
   def initialize
-    @books = []
+    @book_controller = BookController.new
+    @books = @book_controller.load_books
     @labels = []
   end
 
@@ -27,6 +30,10 @@ class App
     else
       @labels.each { |label| puts "Title: #{label.title}, color: #{label.color}" }
     end
+  end
+
+  def save_files
+    @book_controller.save_books(@books)
   end
 
 end
