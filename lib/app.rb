@@ -14,6 +14,11 @@ class App
   end
 
   def list_books
+    @books.each { |book| puts "Publisher: #{book.publisher}, condition: #{book.cover_state}, published date: #{book.date}" }
+  end
+
+  def list_labels
+    @labels.each { |label| puts "Title: #{label.title}, color: #{label.color}" }
   end
 
 end
