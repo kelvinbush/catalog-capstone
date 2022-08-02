@@ -18,6 +18,10 @@ class App
     @labels << label
   end
 
+  def add_album(album)
+    @albums << label
+  end
+
   def list_books
     if @books.empty?
       puts 'Catalog is empty! Choose (9) to add a book.'
@@ -37,6 +41,7 @@ class App
   def save_files
     @book_controller.save_books(@books)
     @label_controller.save_labels(@labels)
+    # @album_controller.save_albums(@albums)
   end
 
 end
