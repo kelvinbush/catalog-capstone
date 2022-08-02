@@ -1,9 +1,8 @@
 require 'spec_helper'
 
-describe 'Label' do
+describe Label do
   before(:all) do
     @book = Book.new('2022-01-01', 'Kelvin Bush', 'good')
-    @old_book = Book.new('2004-01-01', 'Charles Darwin', 'good')
     @new_book = Book.new('2018-01-01', 'John Terry', 'bad')
     @label = Label.new('Big Bang Theory', 'Green')
     @label.add_item(@book)
@@ -18,6 +17,13 @@ describe 'Label' do
       expect(@label.title).to eq 'Big Bang Theory'
     end
 
-    it 'should have the correct number of '
+    it 'should add new items' do
+      @label.add_item(@new_book)
+      expect(@label.items).to include(@new_book)
+    end
+
+    it 'should have the correct number of items' do
+      expect(@label.items.length).to eq 2
+    end
   end
 end
