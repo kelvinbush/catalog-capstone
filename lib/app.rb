@@ -17,7 +17,7 @@ class App
     if @books.empty?
       puts 'Catalog is empty! Choose (9) to add a book.'
     else
-      @books.each { |book| puts "Publisher: #{book.publisher}, condition: #{book.cover_state}, published date: #{book.date}" }
+      @books.each { |book| puts "Publisher: #{book.publisher}, condition: #{book.cover_state}, published date: #{book.publish_date}" }
     end
   end
 

@@ -7,12 +7,17 @@ class Menu
     @app = App.new
   end
 
+  def start
+    puts 'Welcome to Kelvin, Simba and Hammed\'s Ruby Capstone! Group'
+    inputs
+  end
+
   def add_book
     print 'Enter book publisher:'
     publisher = gets.chomp
     print 'Choose cover state bad(n) or good(y) -> (Y/N):'
     cover_state = gets.chomp.downcase == 'y' ? 'good' : 'bad'
-    print 'Enter published date, format -> YYYY/MM/DD:'
+    print 'Enter published date, format -> YYYY-MM-DD:'
     date = gets.chomp
     book = Book.new(date, publisher, cover_state)
     @app.add_book(book)
@@ -53,7 +58,7 @@ class Menu
   def execute_inputs
     input = Integer(gets.chomp)
     case input
-    when 1 then puts 'Catalog is empty! Choose (9) to add a book.'
+    when 1 then @app.list_books
     when 2 then puts 'Album is empty! Choose (10) to add a music album.'
     when 3 then puts 'Gallery is empty! Choose (11) to add a movie.'
     when 4 then puts 'Store is empty! Choose (12) to add a game.'

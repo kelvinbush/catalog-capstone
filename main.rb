@@ -1,9 +1,8 @@
-require 'pry'
-require_relative 'lib/app'
+require_relative 'lib/menu'
 
 def main
-  app = App.new
-  app.start
+  menu = Menu.new
+  menu.start
 end
 
 main
