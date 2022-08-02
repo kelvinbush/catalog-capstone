@@ -4,14 +4,14 @@ require_relative '../lib/book'
 
 class BookController
   def initialize
-    @labels_path = 'files/books.json'
+    @books_path = 'files/books.json'
     FileUtils.mkdir_p('files') unless File.directory?('files')
-    File.write(@labels_path, []) unless File.exist?(@labels_path)
+    File.write(@books_path, []) unless File.exist?(@books_path)
   end
 
   def load_books
     loaded_books = []
-    books = JSON.parse(File.read(@labels_path))
+    books = JSON.parse(File.read(@books_path))
     books.each do |book|
       loaded_books << Book.new(book['date'], book['publisher'], book['state'])
     end
@@ -27,6 +27,6 @@ class BookController
         state: book.cover_state
       }
     end
-    File.write(@labels_path, JSON.generate(saved_books))
+    File.write(@books_path, JSON.generate(saved_books))
   end
 end
