@@ -13,5 +13,11 @@ describe 'Label' do
     it 'should be of Label class instance' do
       expect(@label).to be_instance_of Label
     end
+
+    it 'should have the correct title' do
+      expect(@label.title).to eq 'Big Bang Theory'
+    end
+
+    it 'should have the correct number of '
   end
 end
