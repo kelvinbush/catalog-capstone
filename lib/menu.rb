@@ -1,9 +1,14 @@
 require_relative 'app'
 require_relative 'book'
 require_relative 'label'
+require_relative 'album'
+require_relative 'genre'
+require_relative '../controllers/album_controller'
 
 class Menu
+  include AlbumController
   def initialize
+    @albums = fetch_albums
     @app = App.new
   end
 
@@ -30,6 +35,23 @@ class Menu
     color = gets.chomp
     label = Label.new(title, color)
     @app.add_label(label)
+  end
+
+  def add_album
+    puts 'Add a Music Album: '
+    print 'Enter music album name: '
+    name = gets.chomp
+    print 'Enter published date [YYYY-MM-DD]: '
+    date = gets.chomp
+    album = MusicAlbum.new(date, name)
+    puts "Music Album created successfully ✅ 🎉🎉🎉"
+  end
+
+  def list_albums
+    puts 'Album is empty! Choose (10) to add a music album.' if @albums.empty?
+    @albums.each_with_index do |album, index|
+      puts "#{index}) Published Date: #{album.publish_date}" 
+    end
   end
 
   def inputs
@@ -59,7 +81,7 @@ class Menu
     input = Integer(gets.chomp)
     case input
     when 1 then @app.list_books
-    when 2 then puts 'Album is empty! Choose (10) to add a music album.'
+    when 2 then puts list_albums
     when 3 then puts 'Gallery is empty! Choose (11) to add a movie.'
     when 4 then puts 'Store is empty! Choose (12) to add a game.'
     when 5 then puts 'Genre\'s list is empty!'
@@ -67,12 +89,13 @@ class Menu
     when 7 then puts 'Author\'s list is empty!'
     when 8 then puts 'Source\'s list is empty!'
     when 9 then add_book
-    when 10 then puts 'Please add a music album!'
+    when 10 then add_album
     when 11 then add_label
     when 12 then puts 'Please add a game'
     when 13
       @app.save_files
       puts 'Thank you for using this app. Goodbye'
+      save_albums
       exit
     else
       puts 'Kindly enter a number between 1-13'
