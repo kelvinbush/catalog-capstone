@@ -1,6 +1,35 @@
+require_relative 'app'
+require_relative 'book'
+require_relative 'label'
 
 class Menu
-  def initialize()
+  def initialize
+    @app = App.new
+  end
+
+  def start
+    puts 'Welcome to Kelvin, Simba and Hammed\'s Ruby Capstone! Group'
+    inputs
+  end
+
+  def add_book
+    print 'Enter book publisher:'
+    publisher = gets.chomp
+    print 'Choose cover state bad(n) or good(y) -> (Y/N):'
+    cover_state = gets.chomp.downcase == 'y' ? 'good' : 'bad'
+    print 'Enter published date, format -> YYYY-MM-DD:'
+    date = gets.chomp
+    book = Book.new(date, publisher, cover_state)
+    @app.add_book(book)
+  end
+
+  def add_label
+    print 'Enter the label title:'
+    title = gets.chomp
+    print 'Enter the label color:'
+    color = gets.chomp
+    label = Label.new(title, color)
+    @app.add_label(label)
   end
 
   def inputs
@@ -17,7 +46,7 @@ class Menu
       puts '8 - List all sources (e.g \'From a friend\', \'Online shop\')'
       puts '9 - Add a book'
       puts '10 - Add a music album'
-      puts '11 - Add a movie'
+      puts '11 - Add a label'
       puts '12 - Add a game'
       puts '13 - Exit'
       execute_inputs
@@ -29,17 +58,17 @@ class Menu
   def execute_inputs
     input = Integer(gets.chomp)
     case input
-    when 1 then puts 'Catalog is empty! Choose (9) to add a book.'
+    when 1 then @app.list_books
     when 2 then puts 'Album is empty! Choose (10) to add a music album.'
     when 3 then puts 'Gallery is empty! Choose (11) to add a movie.'
     when 4 then puts 'Store is empty! Choose (12) to add a game.'
     when 5 then puts 'Genre\'s list is empty!'
-    when 6 then puts 'Labels\'s list is empty!'
+    when 6 then @app.list_labels
     when 7 then puts 'Author\'s list is empty!'
     when 8 then puts 'Source\'s list is empty!'
-    when 9 then puts 'Please add a book!'
+    when 9 then add_book
     when 10 then puts 'Please add a music album!'
-    when 11 then puts 'Please add a movie!'
+    when 11 then add_label
     when 12 then puts 'Please add a game'
     when 13
       puts 'Thank you for using this app. Goodbye'
