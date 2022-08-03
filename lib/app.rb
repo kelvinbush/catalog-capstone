@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 require_relative '../controllers/book_controller'
 require_relative '../controllers/label_controller'
 require_relative '../controllers/album_controller'
 require_relative '../controllers/genre_controller'
 
 class App
-  include GenreController
-
   def initialize
     @book_controller = BookController.new
     @label_controller = LabelController.new
@@ -37,7 +37,9 @@ class App
     if @books.empty?
       puts 'Catalog is empty! Choose (9) to add a book.'
     else
-      @books.each { |book| puts "Publisher: #{book.publisher}, condition: #{book.cover_state}, published date: #{book.publish_date}" }
+      @books.each do |book|
+        puts "Publisher: #{book.publisher}, condition: #{book.cover_state}, published date: #{book.publish_date}"
+      end
     end
   end
 
@@ -71,6 +73,4 @@ class App
     @album_controller.save_albums(@albums)
     @genre_controller.save_genres(@genres)
   end
-
 end
-  
