@@ -1,16 +1,20 @@
 require_relative '../controllers/book_controller'
 require_relative '../controllers/label_controller'
 require_relative '../controllers/album_controller'
+require_relative '../controllers/genre_controller'
 
 class App
+  include GenreController
 
   def initialize
     @book_controller = BookController.new
     @label_controller = LabelController.new
     @album_controller = AlbumController.new
+    @genre_controller = GenreController.new
     @books = @book_controller.load_books
     @labels = @label_controller.load_labels
     @albums = @album_controller.fetch_albums
+    @genres = []
   end
 
   def add_book(book)
@@ -23,6 +27,10 @@ class App
 
   def add_album(album)
     @albums << album
+  end
+
+  def add_genre(genre)
+    @genres << genre
   end
 
   def list_books
@@ -42,16 +50,26 @@ class App
   end
 
   def list_albums
+    puts 'Music Albums: '
+    puts '----------***----------'
     puts 'Album is empty! Choose (10) to add a music album.' if @albums.empty?
     @albums.each_with_index do |album, index|
       puts "#{index}) Published Date: #{album.publish_date}" 
     end
   end
 
+  def all_genres
+    puts 'Genres: '
+    puts '----------***----------'
+    puts 'Genre\'s list is empty! Choose (10) to add a music album.' if @genre.empty?
+    list_genres
+  end
+
   def save_files
     @book_controller.save_books(@books)
     @label_controller.save_labels(@labels)
     @album_controller.save_albums(@albums)
+    @genre_controller.save_genres(@genres)
   end
 
 end

@@ -3,12 +3,9 @@ require_relative 'book'
 require_relative 'label'
 require_relative 'album'
 require_relative 'genre'
-# require_relative '../controllers/album_controller'
 
 class Menu
-  # include AlbumController
   def initialize
-    # @albums = fetch_albums
     @app = App.new
   end
 
@@ -48,23 +45,30 @@ class Menu
     puts "Music Album created successfully ✅ 🎉🎉🎉"
   end
 
+  def add_genre
+    print 'Enter the Genre name:'
+    name = gets.chomp
+    genre = Genre.new(name)
+    @app.add_genre(genre)
+  end
+
   def inputs
     loop do
       puts ' '
       puts 'Please choose an option by entering a number:'
-      puts '1 - List all books'
-      puts '2 - List all music albums'
-      puts '3 - List all movies'
-      puts '4 - List of games'
-      puts '5 - List all genres (e.g \'Comedy\', \'Thriller\')'
-      puts '6 - List all labels (e.g \'Gift\', \'New\')'
-      puts '7 - List all authors (e.g \'Stephen King\')'
-      puts '8 - List all sources (e.g \'From a friend\', \'Online shop\')'
-      puts '9 - Add a book'
-      puts '10 - Add a music album'
-      puts '11 - Add a label'
-      puts '12 - Add a game'
-      puts '13 - Exit'
+      puts "#{'1'.green} - List all books"
+      puts "#{'2'.green} - List all music albums"
+      puts "#{'3'.green} - List all movies"
+      puts "#{'4'.green} - List of games"
+      puts "#{'5'.green} - List all genres (e.g \'Comedy\', \'Thriller\')"
+      puts "#{'6'.green} - List all labels (e.g \'Gift\', \'New\')"
+      puts "#{'7'.green} - List all authors (e.g \'Stephen King\')"
+      puts "#{'8'.green} - List all sources (e.g \'From a friend\', \'Online shop\')"
+      puts "#{'9'.green} - Add a book"
+      puts "#{'10'.green} - Add a music album"
+      puts "#{'11'.green} - Add a label"
+      puts "#{'12'.green} - Add a game"
+      puts "#{'13'.red} - Exit"
       execute_inputs
     end
   end
@@ -78,7 +82,7 @@ class Menu
     when 2 then @app.list_albums
     when 3 then puts 'Gallery is empty! Choose (11) to add a movie.'
     when 4 then puts 'Store is empty! Choose (12) to add a game.'
-    when 5 then puts 'Genre\'s list is empty!'
+    when 5 then @app.all_genres
     when 6 then @app.list_labels
     when 7 then puts 'Author\'s list is empty!'
     when 8 then puts 'Source\'s list is empty!'
@@ -88,7 +92,7 @@ class Menu
     when 12 then puts 'Please add a game'
     when 13
       @app.save_files
-      puts 'Thank you for using this app. Goodbye'
+      puts 'Thank you for using this app. Goodbye!'
       exit
     else
       puts 'Kindly enter a number between 1-13'
