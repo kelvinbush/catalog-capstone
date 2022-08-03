@@ -91,10 +91,20 @@ class App
     end
   end
 
+  def list_authors
+    if @authors.empty?
+      puts 'Catalog is empty! Choose (13) to add an author.'
+    else
+      @authors.each { |author| puts "First name: #{author.first_name}, Last name: #{author.last_name}" }
+    end
+  end
+
   def save_files
     @book_controller.save_books(@books)
     @label_controller.save_labels(@labels)
     @album_controller.save_albums(@albums)
     @genre_controller.save_genres(@genres)
+    @game_controller.save_games(@games)
+    @author_controller.save_authors(@authors)
   end
 end

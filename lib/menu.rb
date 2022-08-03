@@ -3,6 +3,8 @@ require_relative 'book'
 require_relative 'label'
 require_relative 'album'
 require_relative 'genre'
+require_relative 'game'
+require_relative 'author'
 
 class Menu
   def initialize
@@ -52,6 +54,26 @@ class Menu
     @app.add_genre(genre)
   end
 
+  def add_game
+    print 'Is game multiplayer no(n) or yes(y) -> (Y/N):'
+    multiplayer = gets.chomp.downcase == 'y' ? 'yes' : 'no'
+    print 'Enter published date, format -> YYYY-MM-DD:'
+    publish_date = gets.chomp
+    print 'Enter date last played, format -> YYYY-MM-DD:'
+    last_played = gets.chomp
+    game = Game.new(publish_date, multiplayer, last_played)
+    @app.add_game(game)
+  end
+
+  def add_author
+    print 'Enter the first name:'
+    first_name = gets.chomp
+    print 'Enter the last name:'
+    last_name = gets.chomp
+    author = Author.new(first_name, last_name)
+    @app.add_author(author)
+  end
+
   def inputs
     loop do
       puts ' '
@@ -68,7 +90,8 @@ class Menu
       puts "10 - Add a music album"
       puts "11 - Add a label"
       puts "12 - Add a game"
-      puts "13 - Exit"
+      puts "13 - Add an author"
+      puts "14 - Exit"
       execute_inputs
     end
   end
@@ -81,16 +104,17 @@ class Menu
     when 1 then @app.list_books
     when 2 then @app.list_albums
     when 3 then add_genre
-    when 4 then puts 'Store is empty! Choose (12) to add a game.'
+    when 4 then @app.list_games
     when 5 then @app.all_genres
     when 6 then @app.list_labels
-    when 7 then puts 'Author\'s list is empty!'
+    when 7 then @app.list_authors
     when 8 then puts 'Source\'s list is empty!'
     when 9 then add_book
     when 10 then add_album
     when 11 then add_label
-    when 12 then puts 'Please add a game'
-    when 13
+    when 12 then add_game
+    when 13 then add_author
+    when 14
       @app.save_files
       puts 'Thank you for using this app. Goodbye!'
       exit

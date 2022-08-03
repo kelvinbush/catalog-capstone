@@ -1,13 +1,13 @@
 require 'json'
 require 'fileutils'
 require_relative '../lib/label'
-​
+
 class AuthorController
   def initialize
     @authors_path = 'files/authors.json'
     File.write(@authors_path, []) unless File.exist?(@authors_path)
   end
-​
+
   def load_authors
     loaded_authors = []
     authors = JSON.parse(File.read(@authors_path))
@@ -16,7 +16,7 @@ class AuthorController
     end
     loaded_authors
   end
-​
+
   def save_authors(authors)
     saved_authors = []
     authors.each do |author|
