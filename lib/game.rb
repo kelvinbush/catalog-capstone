@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'item'
 require 'date'
 
@@ -15,6 +17,3 @@ class Game < Item
     super && @last_played_at.year < date_today.year - 2
   end
 end
-
-p gow = Game.new('2010-10-10', 'no', '2021-10-01')
-p gow.can_be_archived?
