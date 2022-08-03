@@ -8,7 +8,7 @@ class AuthorController
     File.write(@authors_path, []) unless File.exist?(@authors_path)
   end
 ​
-  def load_labels
+  def load_authors
     loaded_authors = []
     authors = JSON.parse(File.read(@authors_path))
     authors.each do |author|

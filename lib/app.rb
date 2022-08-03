@@ -2,6 +2,8 @@ require_relative '../controllers/book_controller'
 require_relative '../controllers/label_controller'
 require_relative '../controllers/album_controller'
 require_relative '../controllers/genre_controller'
+require_relative '../controllers/game_controller'
+require_relative '../controllers/author_controller'
 
 class App
   def initialize
@@ -9,10 +11,14 @@ class App
     @label_controller = LabelController.new
     @album_controller = AlbumController.new
     @genre_controller = GenreController.new
+    @game_controller = GameController.new
+    @author_controller = AuthorController.new
     @books = @book_controller.load_books
     @labels = @label_controller.load_labels
     @albums = @album_controller.fetch_albums
     @genres = @genre_controller.load_genres
+    @games = @game_controller.load_games
+    @authors = @author_controller.load_authors
   end
 
   def add_book(book)
@@ -29,6 +35,14 @@ class App
 
   def add_genre(genre)
     @genres << genre
+  end
+
+  def add_game(game)
+    @games << game
+  end
+
+  def add_author(author)
+    @authors << author
   end
 
   def list_books
@@ -64,6 +78,16 @@ class App
     puts 'Genre\'s list is empty! Choose (10) to add a music album.' if @genres.empty?
     @genres.each_with_index do |genre, index|
       puts "#{index}) Name: #{genre.name}"
+    end
+  end
+
+  def list_games
+    if @games.empty?
+      puts 'Games Catalog is empty! Choose (12) to add a game.'
+    else
+      @games.each do |game|
+        puts "Multiplayer: #{game.multiplayer}, last played at: #{game.last_played_at}, published date: #{game.publish_date}"
+      end
     end
   end
 
