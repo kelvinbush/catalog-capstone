@@ -24,3 +24,18 @@ CREATE TABLE books
     item_id     INT,
     CONSTRAINT item_fk FOREIGN KEY (item_id) REFERENCES item (id)
 );
+
+CREATE TABLE music_albums
+(
+    id         INT,
+    name       VARCHAR(100),
+    on_spotify BOOLEAN,
+    item_id    INT,
+    CONSTRAINT item_fk FOREIGN KEY (item_id) REFERENCES item (id)
+);
+
+CREATE TABLE genres
+(
+    id   SERIAL PRIMARY KEY,
+    name VARCHAR(100)
+);
