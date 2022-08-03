@@ -1,6 +1,6 @@
 require 'json'
 require 'fileutils'
-require_relative '../lib/label'
+require_relative '../lib/game'
 
 class GameController
   def initialize
