@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# CATALOG RUBY CAPSTONE PROJECT
 
 > Description the project.
 
@@ -47,6 +47,12 @@ To get a local copy up and running follow these simple example steps.
 - LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 👤 **Author2**
+
+- GitHub: [@aburayhaan](https://github.com/AbuRayhaan)
+- Twitter: [@ayinla2011](https://twitter.com/Ayinla2011)
+- LinkedIn: [Hammed Adisa](https://www.linkedin.com/in/hammed-adisa)
+
+👤 **Author3**
 
 - GitHub: [@githubhandle](https://github.com/githubhandle)
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
