@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../controllers/book_controller'
 require_relative '../controllers/label_controller'
 require_relative '../controllers/album_controller'
@@ -14,7 +12,7 @@ class App
     @books = @book_controller.load_books
     @labels = @label_controller.load_labels
     @albums = @album_controller.fetch_albums
-    @genres = []
+    @genres = @genre_controller.load_genres
   end
 
   def add_book(book)
@@ -56,15 +54,17 @@ class App
     puts '----------***----------'
     puts 'Album is empty! Choose (10) to add a music album.' if @albums.empty?
     @albums.each_with_index do |album, index|
-      puts "#{index}) Published Date: #{album.publish_date}" 
+      puts "#{index}) Published Date: #{album.publish_date}"
     end
   end
 
   def all_genres
     puts 'Genres: '
     puts '----------***----------'
-    puts 'Genre\'s list is empty! Choose (10) to add a music album.' if @genre.empty?
-    list_genres
+    puts 'Genre\'s list is empty! Choose (10) to add a music album.' if @genres.empty?
+    @genres.each_with_index do |genre, index|
+      puts "#{index}) Name: #{genre.name}"
+    end
   end
 
   def save_files

@@ -13,7 +13,7 @@ CREATE TABLE labels
 (
     id    SERIAL PRIMARY KEY,
     title VARCHAR(250),
-    color VARCHAR(250),
+    color VARCHAR(250)
 );
 
 CREATE TABLE books
