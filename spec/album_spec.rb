@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe MusicAlbum do
@@ -12,7 +14,7 @@ describe MusicAlbum do
       expect(@music_album1.name).to eq 'Afro Beat'
     end
     it 'should not archive if not older than 10 years' do
-        expect(@music_album1.can_be_archived?).to eq false
+      expect(@music_album1.can_be_archived?).to eq false
     end
   end
 end

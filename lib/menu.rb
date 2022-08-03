@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'app'
 require_relative 'book'
 require_relative 'label'
@@ -44,7 +46,7 @@ class Menu
     date = gets.chomp
     album = MusicAlbum.new(date, name)
     @app.add_album(album)
-    puts "Music Album created successfully ✅ 🎉🎉🎉"
+    puts 'Music Album created successfully ✅ 🎉🎉🎉'
   end
 
   def add_genre
@@ -78,20 +80,20 @@ class Menu
     loop do
       puts ' '
       puts 'Please choose an option by entering a number:'
-      puts "1 - List all books"
-      puts "2 - List all music albums"
-      puts "3 - Add a genre"
-      puts "4 - List of games"
+      puts '1 - List all books'
+      puts '2 - List all music albums'
+      puts '3 - Add a genre'
+      puts '4 - List of games'
       puts "5 - List all genres (e.g 'Comedy', 'Thriller')"
       puts "6 - List all labels (e.g 'Gift', 'New')"
       puts "7 - List all authors (e.g 'Stephen King')"
       puts "8 - List all sources (e.g 'From a friend', 'Online shop')"
-      puts "9 - Add a book"
-      puts "10 - Add a music album"
-      puts "11 - Add a label"
-      puts "12 - Add a game"
-      puts "13 - Add an author"
-      puts "14 - Exit"
+      puts '9 - Add a book'
+      puts '10 - Add a music album'
+      puts '11 - Add a label'
+      puts '12 - Add a game'
+      puts '13 - Add an author'
+      puts '14 - Exit'
       execute_inputs
     end
   end

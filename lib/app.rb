@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../controllers/book_controller'
 require_relative '../controllers/label_controller'
 require_relative '../controllers/album_controller'

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 require 'json'
-require './lib/album.rb'
+require './lib/album'
 
 class AlbumController
   def fetch_albums
@@ -11,7 +13,7 @@ class AlbumController
         store << MusicAlbum.new(album['date'], album['name'])
       end
     else
-        File.write(file, '[]')
+      File.write(file, '[]')
     end
     store
   end

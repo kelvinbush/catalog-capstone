@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 require 'fileutils'
 require_relative '../lib/game'
@@ -23,7 +25,7 @@ class GameController
       saved_games << {
         date: game.publish_date,
         multiplayer: game.multiplayer,
-        last_played_at: game.last_played_at,
+        last_played_at: game.last_played_at
       }
     end
     File.write(@games_path, JSON.generate(saved_games))

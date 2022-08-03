@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 require 'fileutils'
 require_relative '../lib/label'
@@ -21,7 +23,7 @@ class GenreController
     saved_genres = []
     genres.each do |genre|
       saved_genres << {
-        name: genre.name,
+        name: genre.name
       }
     end
     File.write(@genre_path, JSON.generate(saved_genres))
