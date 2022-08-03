@@ -87,13 +87,12 @@ class Menu
       puts "5 - List all genres (e.g 'Comedy', 'Thriller')"
       puts "6 - List all labels (e.g 'Gift', 'New')"
       puts "7 - List all authors (e.g 'Stephen King')"
-      puts "8 - List all sources (e.g 'From a friend', 'Online shop')"
-      puts '9 - Add a book'
-      puts '10 - Add a music album'
-      puts '11 - Add a label'
-      puts '12 - Add a game'
-      puts '13 - Add an author'
-      puts '14 - Exit'
+      puts '8 - Add a book'
+      puts '9 - Add a music album'
+      puts '10 - Add a label'
+      puts '11 - Add a game'
+      puts '12 - Add an author'
+      puts '13 - Exit'
       execute_inputs
     end
   end
@@ -110,13 +109,12 @@ class Menu
     when 5 then @app.all_genres
     when 6 then @app.list_labels
     when 7 then @app.list_authors
-    when 8 then puts 'Source\'s list is empty!'
-    when 9 then add_book
-    when 10 then add_album
-    when 11 then add_label
-    when 12 then add_game
-    when 13 then add_author
-    when 14
+    when 8 then add_book
+    when 9 then add_album
+    when 10 then add_label
+    when 11 then add_game
+    when 12 then add_author
+    when 13
       @app.save_files
       puts 'Thank you for using this app. Goodbye!'
       exit
