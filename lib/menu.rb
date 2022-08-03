@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'app'
 require_relative 'book'
 require_relative 'label'
@@ -97,7 +95,7 @@ class Menu
     end
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics
 
   def execute_inputs
     input = Integer(gets.chomp)
@@ -123,5 +121,5 @@ class Menu
     end
   end
 
-  # rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics
 end

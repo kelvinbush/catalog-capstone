@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../controllers/book_controller'
 require_relative '../controllers/label_controller'
 require_relative '../controllers/album_controller'
@@ -88,7 +86,8 @@ class App
       puts 'Games Catalog is empty! Choose (12) to add a game.'
     else
       @games.each do |game|
-        puts "Multiplayer: #{game.multiplayer}, last played at: #{game.last_played_at}, published date: #{game.publish_date}"
+        puts "Multiplayer: #{game.multiplayer}, last played at: #{game.last_played_at},
+ published date: #{game.publish_date}\n"
       end
     end
   end
